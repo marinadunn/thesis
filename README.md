@@ -6,7 +6,7 @@ This contains code for applying probabalistic deep learning techniques to a simu
 ## Dataset
 The mock catalog was created from the Illustris TNG100 simulation from snapshots year 1, with high noise, and year 10, with low noise. Noise and point-spread function was added using the GalSim package as part of the DeepAdversaries project. Both the large raw data files as well as resized smaller image files can be accessed on [Zenodo](https://zenodo.org/record/5514180#.Ymb3zi-B2L2) and are in .npy file format. 
 
-The training set consists of 6715 images, the test set consists of 23487 images, and the validation set consists of 3355 images. For image labels, the image is classified into 3 categories: spiral ('0'), elliptical ('1'), or merger ('2’).
+The training set consists of 23487 images, the test set consists of 6715 images, and the validation set consists of 3355 images. For image labels, the image is classified into 3 categories: spiral ('0'), elliptical ('1'), or merger ('2’).
 
 ## Training
 The baseline Convolutional Neural Network model and Bayesian Neural Network model are both developed using Tensorflow.
