@@ -8,12 +8,15 @@ The LSST mock catalog was created from the Illustris TNG100 simulation from snap
 
 The training set consists of 23487 images, the test set consists of 6715 images, and the validation set consists of 3355 images. For image labels, the image is classified into 3 categories: spiral ('0'), elliptical ('1'), or merger ('2’).
 
-## Training
-For the LSST simulated catalog data, several original baseline deterministic Convolutional Neural Network models were developed and tested, then a subsequent Bayesian Neural Network model, all developed using Tensorflow as part of the CS 235: Data Mining course (Spring 2022). These can be found in the file:
+## Part 1
+For the LSST simulated catalog data, several original baseline deterministic Convolutional Neural Network models were developed and tested, then a subsequent probabilistic CNN, then a Bayesian CNN, all developed using TensorFlow as part of the UC Riverside CS 235: Data Mining course (Spring 2022). These can be found in the file:
 
 `CNN.ipynb`
 
-Additional developments will be made available soon.
+## Deterministic Models
+Standard deterministic Convolutional Neural Network models were developed first to use as baseline models. The architecture for the first deterministic model is designed similarly to that used for the [DeepMerge project](https://github.com/AleksCipri/deepmerge-public), which achieved a classification accuracy of 76% for low-noise images and 79% for noisy images, but instead uses Categorical Cross-Entropy loss and the Softmax activation function to make predictions for the 3 classes.
+
+Several methods were used to try to prevent overfitting, including Batch Normalization, Dropout, L2 regularization for kernel regularizers, and the Early Stopping, ModelCheckpoint, and ReduceLCOnPlateau callback functions.
 
 ## Requirements
-This code was developed using Tensorflow 2.8.0 (installed via [Apple Mac M1 chip instructions](https://developer.apple.com/metal/tensorflow-plugin/)), and Tensorflow Probability 0.16.0.
+This code was developed using TensorFlow 2.8.0 (installed via [Apple Mac M1 chip instructions](https://developer.apple.com/metal/tensorflow-plugin/)), and TensorFlow Probability 0.16.0.
