@@ -13,9 +13,9 @@ For the LSST simulated catalog data, several original baseline deterministic Con
 
 `CNN.ipynb`
 
-Standard deterministic Convolutional Neural Network models were developed first to use as baseline models. The architecture for the first deterministic model is designed similarly to that used for the [DeepMerge project](https://github.com/AleksCipri/deepmerge-public), which achieved a classification accuracy of 76% for low-noise images and 79% for noisy images, but instead uses Categorical Cross-Entropy loss and the Softmax activation function to make predictions for the 3 classes.
+Standard deterministic Convolutional Neural Network models were developed first to use as baseline models. The architecture for the first deterministic model is designed similarly to that used for the [DeepMerge project](https://github.com/AleksCipri/deepmerge-public), which uses 3 convolutional layers with dropout, 3 pooling layers, flattening, and then 3 dense layers with the first 2 having weight regularization. This achieved a classification accuracy of 76% for low-noise images and 79% for noisy images, but instead uses Categorical Cross-Entropy loss and the Softmax activation function to make predictions for the 3 classes. 
 
-Several methods were used to try to prevent overfitting, including Batch Normalization, Dropout, L2 regularization for kernel regularizers, and the Early Stopping, ModelCheckpoint, and ReduceLCOnPlateau callback functions.
+Several methods were used to try to prevent overfitting, including Batch Normalization, Dropout, L2 regularization for kernel regularizers, and the Early Stopping (monitoring validation loss), ModelCheckpoint, and ReduceLCOnPlateau callback functions.
 
 ## Requirements
 This code was developed using TensorFlow 2.8.0 (installed via [Apple Mac M1 chip instructions](https://developer.apple.com/metal/tensorflow-plugin/)), and TensorFlow Probability 0.16.0.
