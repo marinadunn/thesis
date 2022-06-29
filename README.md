@@ -62,4 +62,4 @@ Several methods were also used to try to prevent overfitting, including Batch No
 TBD
 
 ## Requirements
-This code was developed using Python 3., TensorFlow 2.9.0 (installed via [Apple Mac M1 chip instructions](https://developer.apple.com/metal/tensorflow-plugin/)), and TensorFlow Probability 0.16.0.
+This code was developed using Python 3.10, TensorFlow 2.9.0 (installed via [Apple Mac M1 chip instructions](https://developer.apple.com/metal/tensorflow-plugin/)), and TensorFlow Probability 0.16.0.
