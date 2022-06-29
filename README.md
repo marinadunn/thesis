@@ -31,14 +31,26 @@ Build, compile, and train Convolutional Neural Network (CNN), and eventually Bay
 `sklearn` for utility functions
 
 ## Data
-The first half of this project focuses on using simulated data for LSST. The LSST mock catalog was created from the Illustris TNG100 simulation from snapshots year 1, with high noise, and year 10, with low noise. Noise and point-spread function was added using the GalSim package as part of the DeepAdversaries project. Both the large raw data files as well as resized smaller image files can be accessed on [Zenodo](https://zenodo.org/record/5514180#.Ymb3zi-B2L2) and are in .npy file format. For both years 1 and 10, the training set consists of 23487 images, the test set consists of 6715 images, and the validation set consists of 3355 images. Images are classified and one-hot encoded into 3 categorical labels: spiral ('0'), elliptical ('1'), or merger ('2’).
+The first half of this project focuses on using simulated data for LSST. The LSST mock catalog was created from the Illustris TNG100 simulation from snapshots year 1, with high noise, and year 10, with low noise. Noise and point-spread function was added using the GalSim package as part of the DeepAdversaries project. Both the large raw data files as well as resized smaller image files can be accessed on [Zenodo](https://zenodo.org/record/5514180#.Ymb3zi-B2L2) and are in .npy file format. 
+
+Data Distribution:
+
+There are 33,557 total images. There are 14312 : 8151 : 11094 images of spirals, ellipticals and mergers, respectively.
+
+Training set: 23,487 images (10,017 spiral, 5,705 elliptical, 7,765 mergers)
+
+Test set: 6,715 images (2,863 spiral 1,631 elliptical, 2,221 mergers)
+
+Validation set: 3,355 images (1,432 spiral, 815 elliptical, 1,108 mergers)
+
+Images are classified and one-hot encoded into 3 categorical labels: spiral ('0'), elliptical ('1'), or merger ('2’). The distribution is the same for both years 1 and 10.
 
 The second half of the project will focus on comparing model performance using simulated and real observational data from the Hubble Space Telescope. Development for this will start in Fall 2022 and can be found in the file:
 
 `HST.ipynb`
 
 ## LSST Training
-For the LSST simulated catalog data, several baseline deterministic Convolutional Neural Network models were built, compiled, trained, and evaluated for both year 1 and year 10 images. The best model was then chosen to develop a probabilistic CNN, then a Bayesian CNN, all developed using Keras and TensorFlow. This can be found in the file:
+For the LSST simulated catalog data, several baseline deterministic Convolutional Neural Network models were built, compiled, trained, and evaluated for both year 1 and year 10 image datasets. The best model was then chosen to develop a probabilistic CNN, then a Bayesian CNN, all developed using Keras and TensorFlow. This can be found in the file:
 
 `LSST.ipynb`
 
