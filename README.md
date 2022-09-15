@@ -56,7 +56,7 @@ Model development can be found in the Jupyter notebook `LSST.ipynb`
   * Categorical cross-entropy (because this is a multi-class classification problem, and the labels are one-hot encoded)
 * Activation functions used:
   * ReLU (All but last layer)
-  * Softmax (Last Dense layer)
+  * Softmax (one Dense node per class label)
 * Optimizers used:
   * Adam
   * Adam weighted
