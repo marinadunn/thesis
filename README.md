@@ -51,7 +51,7 @@ To begin, several baseline deterministic Convolutional Neural Network models wer
 
 Model development can be found in the Jupyter notebook `LSST.ipynb`
 
-# Deterministic CNN Model Architecture:
+### Deterministic CNN Model Architecture:
 * Loss functions used:
   * Categorical cross-entropy (because this is a multi-class classification problem, and the labels are one-hot encoded)
 * Activation functions used:
