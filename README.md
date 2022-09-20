@@ -69,4 +69,4 @@ Model development can be found in the Jupyter notebook `LSST.ipynb`
   * ModelCheckpoint (save best weights only)
 
 ## Requirements
-This code was developed using Python 3.10, TensorFlow 2.9.0 (installed via [Apple Mac M1 chip instructions](https://developer.apple.com/metal/tensorflow-plugin/)), and TensorFlow Probability 0.16.0.
+This code was developed using Python 3.10, TensorFlow 2.9.0 (installed via [Apple Mac M1 chip instructions](https://developer.apple.com/metal/tensorflow-plugin/)), and TensorFlow Probability 0.17.0.
