@@ -49,7 +49,7 @@ Class Balance:
 ## Training
 To begin, several baseline deterministic Convolutional Neural Network models were built, compiled, trained, and evaluated for both year 1 and year 10 image datasets. The best model was then chosen to develop a Bayesian CNN. Model architecture was built using Keras and TensorFlow.
 
-Model development can be found in the Jupyter notebook `LSST.ipynb`
+Training using year 1 (noisy) data can be found in the Jupyter notebook `LSST-noisy.ipynb` and training using year 10 (low-noise) data can be found in the Jupyter notebook `LSST-clean.ipynb`.
 
 ### Deterministic CNN Model Architecture:
 * Loss functions used:
