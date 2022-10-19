@@ -2,6 +2,7 @@
 
 # Arrays
 import numpy as np
+from numpy import arcsinh as arcsinh
 import pandas as pd
 
 # System
@@ -11,7 +12,6 @@ import json
 
 # Plotting
 import matplotlib.pyplot as plt
-
 
 # ML - building and training CNN
 import tensorflow_probability as tfp
@@ -36,25 +36,50 @@ from sklearn.metrics import precision_score, recall_score, f1_score, auc
 
 ## Pre-processing
 
-# Function for scaling data
-def scale_data(data):
-    for t in data:
-        # for each color filter
-        for i in range(0, 3):
-            # clip outliers based on global values
-            global_min = np.percentile(t, 0.1)
-            global_max = np.percentile(t, 99.9)
-            c = .85/global_max
-            t[:,i] = np.clip(t[:,i], global_min, global_max)
-            # make objects brighter but keep color relations the same b/w filters
-            # get pixel values as close to 0-1 as possible
-            t[:,i] = numpy.arcsinh(c * t[:, i])
-            t[:,i] = (t[:,i] + 1.0) / 2.0    
-            
-# Function for casting data types as floats
-def make_float(data):
-    for t in data:
-        t = t.astype('float32')
+# Function for viewing pixel values by filter color
+def plot_filters(t):
+    
+    plt.hist(t[:, 0].numpy().ravel(), bins=30, color = 'blue', alpha = 0.7, density=True, align='mid', stacked=True)
+    plt.hist(t[:, 1].numpy().ravel(), bins=30, color = 'red', alpha = 0.7, density=True, align='mid', stacked=True)
+    plt.hist(t[:, 2].numpy().ravel(), bins=30, color = 'green', alpha = 0.7, density=True, align='mid', stacked=True)
+    
+    plt.xlabel("Pixel Values")
+    plt.ylabel("Relative Frequency")
+    plt.title("Distribution of Pixels")
+    plt.tight_layout()
+
+    print('Min: %.3f, Max: %.3f' % (np.amin(t[:, 0]), np.amax(t[:, 0])))
+    print('Min: %.3f, Max: %.3f' % (np.amin(t[:, 1]), np.amax(t[:, 1])))
+    print('Min: %.3f, Max: %.3f' % (np.amin(t[:, 2]), np.amax(t[:, 2])))
+
+# Function for scaling pixel values
+def scale_pixels(t):
+    # clip outliers based on global values
+    global_min = np.percentile(t, 0.1)
+    global_max = np.percentile(t, 99.9)
+    
+    # for each color filter
+    for i in range(0, 3):
+        c = .85/global_max
+        t[:,i] = np.clip(t[:,i].numpy(), global_min, global_max)
+        # get pixel values as close to 0-1 as possible
+        t[:,i] = t[:,i].numpy().arcsinh(c * t[:, i])
+        t[:,i] = (t[:,i].numpy() + 1.0) / 2.0    
+        
+# Function for calculating mean and standard deviation for pixel values
+def mean_std(t):
+    
+    mean1 = t[:,0].mean().item()
+    mean2 = t[:,1].mean().item()
+    mean3 = t[:,2].mean().item()
+    mean = [mean1, mean2, mean3]
+
+    std1 = t[:,0].std().item()
+    std2 = t[:,1].std().item()
+    std3 = t[:,2].std().item()
+    std = [std1, std2, std3]
+
+    return mean, std
 
 ## Training
 
@@ -72,7 +97,6 @@ def compile_model(model, loss, optimizer):
     metrics = ['accuracy']
     model.compile(optimizer = optimizer,loss = loss, metrics = metrics)
     model.summary()
-    
     
 # Function for visualizing training history
 def plot_training(model, history):
@@ -114,7 +138,6 @@ def plot_training(model, history):
     plt.savefig(fname=f"{model.name} Loss Training History", format='png')
     plt.show()
     
-    
 # Function for evaluating model
 def evaluate_model(model, x_data, y_data):
     score = model.evaluate(x_data, y_data, verbose=True)
@@ -127,6 +150,13 @@ def make_classification_report(y_data, y_pred):
 
 # Function for making confusion matrix
 def make_cm(model, y_data, y_pred):
+    """
+    Given a keras model, true labels, and predicted labels, create a confusion 
+    matrix (cm), and make a sklearn Confusion Matrix visualization for plotting.
+    
+    Arguments
+    ---------
+    """
     labels = [0, 1, 2]
     cm = confusion_matrix(y_data, y_pred, labels=labels)
     cm = cm.astype('float')
