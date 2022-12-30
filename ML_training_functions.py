@@ -34,25 +34,34 @@ def labels_hist(y_train, y_test, y_validation):
     
     fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(7, 4))
 
-    ax1.hist(Y_train_df[0].loc[Y_train_df[0] == 1.], label='Spirals', histtype='bar', color='teal')
-    ax1.hist(Y_train_df[2].loc[Y_train_df[2] == 1.], label='Mergers', histtype='bar', color='pink', alpha = 0.9)
-    ax1.hist(Y_train_df[1].loc[Y_train_df[1] == 1.], label='Ellipticals', histtype='bar', color='purple')
+    ax1.hist(Y_train_df[0].loc[Y_train_df[0] == 1.], 
+            label='Spirals', histtype='bar', color='teal')
+    ax1.hist(Y_train_df[2].loc[Y_train_df[2] == 1.], 
+            label='Mergers', histtype='bar', color='pink', alpha = 0.9)
+    ax1.hist(Y_train_df[1].loc[Y_train_df[1] == 1.], 
+            label='Ellipticals', histtype='bar', color='purple')
     ax1.get_xaxis().set_visible(False)
     ax1.set_xlim(0.9,1.2)
     ax1.set_ylim(0,11000)
     ax1.set_title('Training Set')
 
-    ax2.hist(Y_test_df[0].loc[Y_test_df[0] == 1.], label='Spirals', histtype='bar', color='teal')
-    ax2.hist(Y_test_df[2].loc[Y_test_df[2] == 1.], label='Mergers', histtype='bar', color='pink', alpha = 0.9)  
-    ax2.hist(Y_test_df[1].loc[Y_test_df[1] == 1.],label='Ellipticals', histtype='bar', color='purple')
+    ax2.hist(Y_test_df[0].loc[Y_test_df[0] == 1.], 
+            label='Spirals', histtype='bar', color='teal')
+    ax2.hist(Y_test_df[2].loc[Y_test_df[2] == 1.], 
+            label='Mergers', histtype='bar', color='pink', alpha = 0.9)  
+    ax2.hist(Y_test_df[1].loc[Y_test_df[1] == 1.],
+            label='Ellipticals', histtype='bar', color='purple')
     ax2.get_xaxis().set_visible(False)
     ax2.set_xlim(0.9,1.2)
     ax2.set_ylim(0,11000)
     ax2.set_title('Test Set')
 
-    ax3.hist(Y_valid_df[0].loc[Y_valid_df[0] == 1.], label='Spirals', histtype='bar', color='teal')
-    ax3.hist(Y_valid_df[2].loc[Y_valid_df[2] == 1.], label='Mergers', histtype='bar', color='pink', alpha = 0.9)
-    ax3.hist(Y_valid_df[1].loc[Y_valid_df[1] == 1.],label='Ellipticals', histtype='bar',color='purple')
+    ax3.hist(Y_valid_df[0].loc[Y_valid_df[0] == 1.], 
+            label='Spirals', histtype='bar', color='teal')
+    ax3.hist(Y_valid_df[2].loc[Y_valid_df[2] == 1.], 
+            label='Mergers', histtype='bar', color='pink', alpha = 0.9)
+    ax3.hist(Y_valid_df[1].loc[Y_valid_df[1] == 1.], 
+            label='Ellipticals', histtype='bar', color='purple')
     ax3.get_xaxis().set_visible(False)
     ax3.set_xlim(0.9,1.2)
     ax3.set_ylim(0,11000)
@@ -60,7 +69,7 @@ def labels_hist(y_train, y_test, y_validation):
 
     plt.tight_layout()
     plt.legend()
-    plt.savefig(fname=f"Dataset by label", format='jpg')
+    plt.savefig(f"Dataset by Label")
     plt.show()
 
 # Function for viewing pixel values for all datasets by filter color
@@ -69,21 +78,30 @@ def plot_filters(x_train, x_test, x_validation):
     fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(10, 5), sharex=True, sharey=True)
 
     # Training set
-    ax1.hist(x_train[:, 0].ravel(), bins=30, color = 'blue', alpha = 0.2, density=True, range=[-10000, 10000], stacked=True)
-    ax1.hist(x_train[:, 1].ravel(), bins=30, color = 'red', alpha = 0.2, density=True, range=[-10000, 10000], stacked=True)
-    ax1.hist(x_train[:, 2].ravel(), bins=30, color = 'green', alpha = 0.2, density=True, range=[-10000, 10000], stacked=True)
+    ax1.hist(x_train[:, 0].ravel(), bins=30, color = 'blue', alpha = 0.2,
+             density=True, range=[-10000, 10000], stacked=True)
+    ax1.hist(x_train[:, 1].ravel(), bins=30, color = 'red', alpha = 0.2, 
+            density=True, range=[-10000, 10000], stacked=True)
+    ax1.hist(x_train[:, 2].ravel(), bins=30, color = 'green', alpha = 0.2, 
+            density=True, range=[-10000, 10000], stacked=True)
     ax1.set_title("Train")
 
     # Test set
-    ax2.hist(x_test[:, 0].ravel(), bins=30, color = 'blue', alpha = 0.2, density=True, range=[-10000, 10000], stacked=True)
-    ax2.hist(x_test[:, 1].ravel(), bins=30, color = 'red', alpha = 0.2, density=True, range=[-10000, 10000], stacked=True)
-    ax2.hist(x_test[:, 2].ravel(), bins=30, color = 'green', alpha = 0.2, density=True, range=[-10000, 10000], stacked=True)
+    ax2.hist(x_test[:, 0].ravel(), bins=30, color = 'blue', alpha = 0.2, 
+            density=True, range=[-10000, 10000], stacked=True)
+    ax2.hist(x_test[:, 1].ravel(), bins=30, color = 'red', alpha = 0.2, 
+            density=True, range=[-10000, 10000], stacked=True)
+    ax2.hist(x_test[:, 2].ravel(), bins=30, color = 'green', alpha = 0.2, 
+            density=True, range=[-10000, 10000], stacked=True)
     ax2.set_title("Test")
 
     # Validation set
-    ax3.hist(x_validation[:, 0].ravel(), bins=30, color = 'blue', alpha = 0.2, density=True, range=[-10000, 10000], stacked=True)
-    ax3.hist(x_validation[:, 1].ravel(), bins=30, color = 'red', alpha = 0.2, density=True, range=[-10000, 10000], stacked=True)
-    ax3.hist(x_validation[:, 2].ravel(), bins=30, color = 'green', alpha = 0.2, density=True, range=[-10000, 10000], stacked=True)
+    ax3.hist(x_validation[:, 0].ravel(), bins=30, color = 'blue', alpha = 0.2, 
+            density=True, range=[-10000, 10000], stacked=True)
+    ax3.hist(x_validation[:, 1].ravel(), bins=30, color = 'red', alpha = 0.2, 
+            density=True, range=[-10000, 10000], stacked=True)
+    ax3.hist(x_validation[:, 2].ravel(), bins=30, color = 'green', alpha = 0.2, 
+            density=True, range=[-10000, 10000], stacked=True)
     ax3.set_title("Validation")
 
     fig.suptitle("Distribution of Pixels")
@@ -128,21 +146,30 @@ def plot_filters_scaled(x_train, x_test, x_validation):
     fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(10, 5), sharex=True, sharey=True)
 
     # Training set
-    ax1.hist(x_train[:, 0].ravel(), bins=30, color = 'blue', alpha = 0.2, density=True, range=[0, 1], stacked=True)
-    ax1.hist(x_train[:, 1].ravel(), bins=30, color = 'red', alpha = 0.2, density=True, range=[0, 1], stacked=True)
-    ax1.hist(x_train[:, 2].ravel(), bins=30, color = 'green', alpha = 0.2, density=True, range=[0, 1], stacked=True)
+    ax1.hist(x_train[:, 0].ravel(), bins=30, color = 'blue', alpha = 0.2, 
+            density=True, range=[0, 1], stacked=True)
+    ax1.hist(x_train[:, 1].ravel(), bins=30, color = 'red', alpha = 0.2, 
+            density=True, range=[0, 1], stacked=True)
+    ax1.hist(x_train[:, 2].ravel(), bins=30, color = 'green', alpha = 0.2, 
+            density=True, range=[0, 1], stacked=True)
     ax1.set_title("Train")
 
     # Test set
-    ax2.hist(x_test[:, 0].ravel(), bins=30, color = 'blue', alpha = 0.2, density=True, range=[0, 1], stacked=True)
-    ax2.hist(x_test[:, 1].ravel(), bins=30, color = 'red', alpha = 0.2, density=True, range=[0, 1], stacked=True)
-    ax2.hist(x_test[:, 2].ravel(), bins=30, color = 'green', alpha = 0.2, density=True, range=[0, 1], stacked=True)
+    ax2.hist(x_test[:, 0].ravel(), bins=30, color = 'blue', alpha = 0.2, 
+            density=True, range=[0, 1], stacked=True)
+    ax2.hist(x_test[:, 1].ravel(), bins=30, color = 'red', alpha = 0.2, 
+            density=True, range=[0, 1], stacked=True)
+    ax2.hist(x_test[:, 2].ravel(), bins=30, color = 'green', alpha = 0.2, 
+            density=True, range=[0, 1], stacked=True)
     ax2.set_title("Test")
 
     # Validation set
-    ax3.hist(x_validation[:, 0].ravel(), bins=30, color = 'blue', alpha = 0.2, density=True, range=[0, 1], stacked=True)
-    ax3.hist(x_validation[:, 1].ravel(), bins=30, color = 'red', alpha = 0.2, density=True, range=[0, 1], stacked=True)
-    ax3.hist(x_validation[:, 2].ravel(), bins=30, color = 'green', alpha = 0.2, density=True, range=[0, 1], stacked=True)
+    ax3.hist(x_validation[:, 0].ravel(), bins=30, color = 'blue', alpha = 0.2, 
+            density=True, range=[0, 1], stacked=True)
+    ax3.hist(x_validation[:, 1].ravel(), bins=30, color = 'red', alpha = 0.2, 
+            density=True, range=[0, 1], stacked=True)
+    ax3.hist(x_validation[:, 2].ravel(), bins=30, color = 'green', alpha = 0.2, 
+            density=True, range=[0, 1], stacked=True)
     ax3.set_title("Validation")
 
     fig.suptitle("Distribution of Pixels (Scaled)")
@@ -216,7 +243,7 @@ def plot_training(model, history):
     plt.title(f"{model.name} Accuracy Training History")
     plt.legend(loc='best')
     plt.tight_layout()
-    plt.savefig(fname=f"{model.name} Accuracy Training History", format='png')
+    plt.savefig(f"{model.name} Accuracy Training History")
     plt.show()
 
     # Plot loss
@@ -229,7 +256,7 @@ def plot_training(model, history):
     plt.title(f"{model.name} Loss Training History")
     plt.legend(loc='best')
     plt.tight_layout()
-    plt.savefig(fname=f"{model.name} Loss Training History", format='png')
+    plt.savefig(f"{model.name} Loss Training History")
     plt.show()
     
 # Function for evaluating model
@@ -238,7 +265,7 @@ def evaluate_model(model, x_data, y_data):
     print("%s: %.2f%%" % (model.metrics_names[1], score[1]*100))
 
 # Function for making confusion matrix
-def plot_cm(model, y_data, y_pred, class_names=class_names):
+def plot_cm(model, y_data, y_pred):
     """
     Given a keras model, true target labels, and predicted labels, create a confusion 
     matrix (cm), and visualize.
@@ -250,13 +277,14 @@ def plot_cm(model, y_data, y_pred, class_names=class_names):
     labels = np.unique(y_data)
     cm = confusion_matrix(y_data, y_pred, labels = labels)
     cm = cm.astype('float')
-    cd = ConfusionMatrixDisplay(cm, display_labels=class_names)
+    cd = ConfusionMatrixDisplay(cm, display_labels = class_names)
     return cd
 
-def plot_roc(y_data, y_pred, class_names=class_names):
+def plot_roc(y_data, y_pred):
     fpr = dict()
     tpr = dict()
     roc_auc = dict()
+    class_names = ['Spiral', 'Elliptical', 'Merger']
     NUM_CLASSES = len(class_names)
     
     for i in range(NUM_CLASSES):
@@ -276,46 +304,5 @@ def plot_roc(y_data, y_pred, class_names=class_names):
     plt.ylabel('True Positive Rate (Selectivity)')
     plt.legend(loc="lower right")
     plt.title(f'{model.name} ROC Curves')
-    plt.savefig(fname=f"{model.name}_ROC", format='png')
+    plt.savefig(f"{model.name}_ROC")
     plt.show()
-    
-def plot_class_activation_maps(model, x_data):
-
-    # Extract outputs of all layers except the input layer
-    layer_outputs = [layer.output for layer in model.layers[1:]]
-
-    # Create model that will return these outputs, given the model input
-    activation_model = models.Model(inputs=model.input, outputs=layer_outputs) 
-
-    # returns the values of the layer activations in model
-    # Returns a list of Numpy arrays: one array per layer activation
-    activations = activation_model.predict(x_data) 
-    
-    # plot activation maps for all filters in each convolutional layer
-    
-    fig1 = plt.figure(figsize=(11, 1.5))
-
-    for i in range(8):
-        plt.subplot(1, 8, i + 1)
-        layer_activation = activations[0]
-        plt.imshow(layer_activation[1649, i, :, :], cmap='viridis', aspect='auto')
-        plt.axis("off")
-        plt.subplots_adjust(hspace=0, wspace=0)
-
-
-    fig2 = plt.figure(figsize=(11, 3))  
-    for i in range(16):
-        plt.subplot(2, 16, i + 1)
-        layer_activation = activations[4]
-        plt.imshow(layer_activation[1649, i, :, :], cmap='viridis', aspect='auto')
-        plt.axis("off")
-        plt.subplots_adjust(hspace=0, wspace=0)
-
-
-    fig3 = plt.figure(figsize=(15, 6))  
-    for i in range(32):
-        plt.subplot(4, 32, i + 1)
-        layer_activation = activations[8]
-        plt.imshow(layer_activation[1649, i, :, :], cmap='viridis', aspect='auto')
-        plt.axis("off")
-        plt.subplots_adjust(hspace=0, wspace=0)
