@@ -4,7 +4,7 @@ This repository contains relevant development code and documentation for my M.S.
 ## About: 
 We first develop a standard deterministic Convolutional Neural Network (CNN) model, and eventually a fully probabilistic Bayesian Neural Network (BNN) model trained on a simulated mock data catalog of galaxies created from the Illustris TNG100 simulation as part of the [DeepAdversaries project](https://github.com/AleksCipri/DeepAdversaries) representing observing galaxies at various years with the upcoming Vera C. Rubin Observatory Legacy Survey of Space and Time (LSST), where observations at Year 1 are noisier, and Year 10 are less-noisy. We attempt to accurately classify the morphologies of these galaxies as either 'Spiral', 'Elliptical', or 'Merger.'
 
-## Development Steps:
+## Project Steps:
 - Pre-processing data and Exploratory Data Analysis
 - Develop deterministic Convolutional Neural Network model trained on noisy Year 1 data
 - Evaluate CNN model performance on less-noisy Year 10 (expected to have poor performance)
@@ -33,7 +33,7 @@ The development and training notebook for training with Year 10 (low-noise) data
 ```
 LSST-BNN-pristine.ipynb
 ```
-
+Plots for various models can be found in the folder ```Plots```.
 
 
 ## Requirements
