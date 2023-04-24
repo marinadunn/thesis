@@ -17,6 +17,7 @@ jupyterlab-widgets
 jupyterlab_server
 keras
 Keras-Preprocessing
+keras-tuner
 keras-visualizer
 matplotlib
 matplotlib-inline
@@ -33,6 +34,7 @@ psutil
 python-dateutil
 requests
 scikit-learn
+scikit-image
 scipy
 tensorboard
 tensorboard-data-server
@@ -47,4 +49,5 @@ torchvision
 tornado
 typing_extensions
 visualkeras
+wandb
 widgetsnbextension
