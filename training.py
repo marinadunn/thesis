@@ -9,18 +9,16 @@ import math
 import random
 
 # Plotting
+import matplotlib
 import matplotlib.pyplot as plt
 # sklearn metrics and plotting
+import sklearn
 from sklearn.metrics import (roc_curve, roc_auc_score, auc, log_loss,
                              precision_score, recall_score, f1_score, 
                              accuracy_score, classification_report, 
                              ConfusionMatrixDisplay, confusion_matrix)
 # evaluating CNN and hyperparameter optimization
 from sklearn.utils.class_weight import compute_class_weight
-
-# ML - building and training CNN
-import tensorflow as tf
-
 
 # Function for generating class weights
 def generate_class_weights(labels):
@@ -92,7 +90,7 @@ def plot_cm(model, y_data, y_pred):
     cd = ConfusionMatrixDisplay(cm, display_labels = class_names)
     return cd
 
-def plot_roc(y_data, y_pred):
+def plot_roc(y_data, y_pred, model):
     fpr = dict()
     tpr = dict()
     roc_auc = dict()

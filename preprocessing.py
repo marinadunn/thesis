@@ -1,10 +1,12 @@
-import os, sys
+import os
+import sys
 import argparse
 import time
 import random
 import numpy as np
-from numpy import arcsinh as arcsinh
+from numpy import arcsinh
 import pandas as pd
+import matplotlib
 import matplotlib.pyplot as plt
 
 # check data sizes are correct
@@ -69,7 +71,7 @@ def plot_filters(x_train, x_test, x_validation, year, scaled=False):
 
     fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(15, 7), sharex=True, sharey=True)
 
-    if scaled == True:
+    if scaled:
         range = [0, 1]
         title = f"Y{year} Data Scaled Pixel Intensities"
     else:
@@ -171,7 +173,7 @@ def plot_examples(x_train, i, year):
         label = 'Spiral'
     elif 10018 < i <= 15723:
         label = 'Elliptical'
-    elif 15723 < i:
+    elif i > 15723:
         label = 'Merger'
         
     fig.suptitle(f'Y{year} {label} Galaxies', y=0.9, fontsize=14)
