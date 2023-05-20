@@ -1,4 +1,4 @@
-# Thesis
+# LSST Galaxy Morphology Classification Using Bayesian Neural Networks
 This repository contains development code and documentation for my M.S. Engineering: Data Science thesis research (final project expected June 2023) at UC Riverside, entitled "Galaxy Morphology Classification Using Bayesian Neural Networks for the Legacy Survey of Space and Time (LSST)." UCR Project Advisor: Dr. Bahram Mobasher, Deep Skies Lab Research Advisors: Dr. Aleksandra Ciprijanovic (Fermilab, U Chicago), and Dr. Brian Nord (Fermilab, U Chicago, Kavli Institute for Cosmological Physics, MIT)
 
 ## About: 
