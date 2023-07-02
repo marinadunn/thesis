@@ -34,7 +34,7 @@ This was completed using the Fermilab Elastic Analysis Facility.
 Plots for various models and exploratory data analysis can be found in the folder ```Plots```.
 
 ## Requirements
-This code was developed using Python 3.10, Tensorflow-Probability 0.16.0, and Tensorflow 2.9.0. It is recommended to create a new Python virtual environment before running this code. The file `requirements.txt` lists all the Python libraries needed to run the notebooks; they can be installed by running the command:
+This code was developed using Python 3.10, Tensorflow-Probability 0.16.0, and Tensorflow 2.9.0. It is recommended to create a new Python virtual environment before running this code. The file `requirements.txt` lists all packages needed to run the notebooks; they can be installed by running the command:
 ```
 python3 -m pip install -r requirements.txt
 ```
