@@ -26,8 +26,9 @@ To clone this repository and set up the environment, run the following commands 
 ```
 git clone https://github.com/marinadunn/thesis.git
 cd thesis
-conda env create -f requirements.yml
-conda activate galaxies-bnn
+python3 -m venv [envname]
+source [envname]/bin/activate
+python3 -m pip install -r requirements.txt
 ```
 
 ## Usage
