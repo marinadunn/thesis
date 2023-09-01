@@ -1,7 +1,10 @@
 # LSST Galaxy Morphology Classification Using Bayesian Neural Networks
 This repository contains development code and documentation for my M.S. Engineering: Data Science thesis research (final project expected June 2023) at UC Riverside, entitled "Galaxy Morphology Classification Using Bayesian Neural Networks for the Legacy Survey of Space and Time (LSST)." UCR Project Advisor: Dr. Bahram Mobasher, Deep Skies Lab Research Advisors: Dr. Aleksandra Ciprijanovic (Fermilab, U Chicago), and Dr. Brian Nord (Fermilab, U Chicago, Kavli Institute for Cosmological Physics, MIT)
 
-## About: 
+## Overview:
+In the coming decade, new observatories will begin operations, enabling extensive large-scale, multi-wavelength sky surveys for significant astrophysical inquiries. A central focus is understanding galaxy formation and evolution, exemplified by the upcoming Legacy Survey of Space and Time (LSST), with observations starting in 2024. LSST will yield vast data volumes, with many images and catalogs being produced on short timescales, demanding innovative solutions for efficient processing. Machine Learning techniques, such as convolutional neural networks, offer the ability to improve and automate many of these data processes. To prepare for LSST-like surveys, we utilize deep neural networks in order to classify 3 galaxy morphologies in simulated LSST-like images of different quality, accounting for realistic observing degradations like noise. In addition to standard convolutional networks, we explore utilizing Bayesian neural networks, capable of quantifying uncertainty in the parameters of a model and, consequently, of its predictions. Notably, we find that networks trained on noisy early-release data struggle with less noisy subsequent-release data, but transfer learning techniques mitigate this. This emphasizes the need for realistic simulated data in machine learning model development, bridging the gap between simulated and real observations. Further research is warranted, especially refining Bayesian models to provide accurate uncertainties for simulated LSST-like images. As such methods become standard for future surveys, robust models must transition smoothly between simulated and real data, accommodating successive data releases from the same telescopes.
+
+## About:
 We first develop a standard deterministic Convolutional Neural Network (CNN) model, and eventually a fully probabilistic Bayesian Neural Network (BNN) model trained on a simulated mock data catalog of galaxies created from the Illustris TNG100 simulation as part of the [DeepAdversaries project](https://github.com/AleksCipri/DeepAdversaries) representing observing galaxies at various years with the upcoming Vera C. Rubin Observatory Legacy Survey of Space and Time (LSST), where observations at Year 1 are noisier, and Year 10 are less-noisy. We attempt to accurately classify the morphologies of these galaxies as either 'Spiral', 'Elliptical', or 'Merger.'
 
 ## Data
@@ -16,32 +19,36 @@ Data Distribution:
 Example Images:
 ![Example Galaxy Images for Year 1 and Year 10](https://github.com/marinadunn/thesis/blob/main/Plots/EDA/example_images.jpg "Example Images of Year 1 & Year 10 Galaxies")
 
-## Development
-The development and training notebook for standard Convlolutional Neural Networks, training with Year 1 (noisy) data, can be found in:
-```
-LSST-CNN-noisy.ipynb
-```
-The development and training notebook for standard Convlolutional Neural Networks, training with Year 10 (low-noise) data can be found in:
-```
-LSST-CNN-pristine.ipynb
-```
-The development and training notebook for fully probabilistic Bayesian Neural Network, training with Year 1 (noisy) data, was can be found in:
-```
-LSST-BNN-noisy.ipynb
-```
-This was completed using the Fermilab Elastic Analysis Facility.
+## Installation
+This code was developed using Python 3.10, Tensorflow-Probability 0.16.0, and Tensorflow 2.9.0. It is recommended to create a new Python virtual environment before running this code. All dependencies can be found in `requirements.yml`.
 
-Plots for various models and exploratory data analysis can be found in the folder ```Plots```.
+To clone this repository and set up the environment, run the following commands in a terminal:
+```
+git clone https://github.com/marinadunn/thesis.git
+cd thesis
+conda env create -f requirements.yml
+conda activate galaxies-bnn
+```
 
-## Requirements
-This code was developed using Python 3.10, Tensorflow-Probability 0.16.0, and Tensorflow 2.9.0. It is recommended to create a new Python virtual environment before running this code. The file `requirements.txt` lists all packages needed to run the notebooks; they can be installed by running the command:
-```
-python3 -m pip install -r requirements.txt
-```
+## Usage
+Current branch: `main`
+
+Model development notebooks are separated by standard convlolutional neural networks (CNNs) and Bayesian neural networks (BNNs), and whether classification models are trained on noisier Year 1 images or less-noisy Year 10 images.
+
+The development notebook for deterministic CNNs trained on Y1 images can be found in `LSST-CNN-noisy.ipynb`, and CNNs trained on Y10 images can be found in `LSST-CNN-pristine.ipynb`.
+
+The development notebook for fully probabilistic BNNs trained on Y1 images can be found in `LSST-BNN-noisy.ipynb`.
+
+High-performance computing was performed using the [Fermilab Elastic Analysis Facility](https://eafjupyter.readthedocs.io/en/latest/).
+
+Plots for various models and exploratory data analysis can be found in the `Plots` directory. Completed models can be found in the `Models` directory.
 
 ## Authors
-- [Marina M. Dunn](https://orcid.org/0000-0001-5374-1644) (University of California, Riverside/NASA Goddard Space Flight Center, <mdunn014@ucr.edu>)
-- [Dr. Aleksandra Ciprijanovic](https://orcid.org/0000-0003-1281-7192) (Fermi National Accelerator Lab/University of Chicago, <aleksand@fnal.gov>)
+- [Marina M. Dunn](https://marinadunn.github.io) (<mdunn014@ucr.edu>)
+
+Deep Skies Lab Research Mentors:
+- Dr. Aleksandra Ćiprijanović (<aleksand@fnal.gov>)
+- Dr. Brian Nord (<nord@fnal.gov>)
 
 ## Acknowledgements
 We acknowledge the Deep Skies Lab as a community of multi-domain experts and collaborators who’ve facilitated an environment of open discussion, idea-generation, and collaboration. This community was important for the development of this project.

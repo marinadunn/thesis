@@ -1,0 +1,32 @@
+name: galaxies-bnn
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9.*
+  - ipykernel
+  - ipython
+  - ipywidgets
+  - jupyter
+  - jupyterlab
+  - keras
+  - Keras-Preprocessing
+  - keras-tuner
+  - matplotlib
+  - matplotlib-inline
+  - notebook
+  - numpy
+  - pandas
+  - pillow
+  - pip
+  - scikit-learn
+  - scipy
+  - tensorboard
+  - tensorflow==2.10.*
+  - tensorflow-probability==0.16.*
+  - widgetsnbextension
+  - pip:
+    - ipython-genutils
+    - tensorflow-addons
+    - jupyterlab-widgets
+    - jupyterlab-pygments
